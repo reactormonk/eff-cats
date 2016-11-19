@@ -48,9 +48,9 @@ crashes :-(.
 
 Writing interpreters can be a bit tricky, especially to keep them stack-safe. There is no method at the moment for writing
 generic stack-safe interpreters but the `org.atnos.eff.interpret` object offers several support traits and functions to write some of
-them. In this case, the interpretation doesn't need to pass state around so we can use the `Recurse` trait. This kind of
-implementation is shared by many different monads, like `Reader`, `Eval`, `Option` but not `Writer`, `State` or `List` for
-example.
+them. Consult the documentation of `org.atnos.eff.Interpret` for futher information. In this case, the interpretation doesn't need to
+pass state around so we can use the `Recurse` trait. This kind of implementation is shared by many different monads, like `Reader`,
+`Eval`, `Option` but not `Writer`, `State` or `List` for example.
 
 The `runFuture` method needs an implicit `Member.Aux[Fut, R, U]`. This must be read in the following way:
 
@@ -74,4 +74,3 @@ run(runFuture(3.seconds)(action))
 
 
 }
-
